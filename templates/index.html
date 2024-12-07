@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Diagrams Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.63.3/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.5.0/dist/svg-pan-zoom.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css"> <!-- Link to external CSS -->
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header">
+                <div>
+                    <button id="upload-file" class="button-67" title="Upload Python File"><input type="file" id="file" class="file-input" accept=".py">🔺</button>
+                    <button id="download-file" class="button-67" title="Download Python Code">🔻</button>
+                </div>
+                <h1>Real-time Diagrams Editor</h1>
+                <button id="dark-mode-toggle" class="button-67" class="dark-mode-btn"></button>
+            </div>
+        </header>
+        <div class="editor-body">
+            <div class="editor-container">
+                <textarea id="code-editor"></textarea>
+            </div>
+            <div class="output-container">
+                <pre id="output"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script> <!-- Link to external JS -->
+</body>
+
+</html>
