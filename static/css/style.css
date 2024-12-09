@@ -8,9 +8,17 @@
 /* invert colours */
 body {
     font-family: "Arial", sans-serif;
-    background-color: #bbb;
+    background-color: #aaa;
     color: black;
     margin: auto;
+}
+
+.separator {
+    width: 0.1rem;
+    background-color: #bbb;
+    cursor: ew-resize;
+    position: relative;
+    z-index: 1;
 }
 
 .CodeMirror {
@@ -40,8 +48,16 @@ button {
 }
 
 body.dark-mode {
-    background-color: #111;
+    background-color: #000;
     color: white;
+}
+
+body.dark-mode .separator {
+    width: 0.1rem;
+    background-color: #111;
+    cursor: ew-resize;
+    position: relative;
+    z-index: 1;
 }
 
 body.dark-mode .CodeMirror {

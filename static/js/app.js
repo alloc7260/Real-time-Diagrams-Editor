@@ -104,3 +104,32 @@ function loadFile(event) {
 
 // Attach the file input change event listener
 document.getElementById("file").addEventListener("change", loadFile);
+
+const separator = document.getElementById("separator");
+const editorContainer = document.querySelector(".editor-container");
+const outputContainer = document.querySelector(".output-container");
+
+let isDragging = false;
+
+separator.addEventListener("mousedown", function (e) {
+  isDragging = true;
+  document.body.style.cursor = "ew-resize";
+});
+
+document.addEventListener("mousemove", function (e) {
+  if (!isDragging) return;
+
+  const containerWidth = separator.parentElement.clientWidth;
+  const editorWidth = e.clientX;
+  const outputWidth = containerWidth - editorWidth;
+
+  if (editorWidth < 50 || outputWidth < 50) return; // Minimum width check
+
+  editorContainer.style.width = `${editorWidth}px`;
+  outputContainer.style.width = `${outputWidth}px`;
+});
+
+document.addEventListener("mouseup", function () {
+  isDragging = false;
+  document.body.style.cursor = "default";
+});
