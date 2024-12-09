@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
@@ -48,6 +48,13 @@ def index():
 def handle_code_change(code):
     output = execute_code(code)
     emit("output", {"output": output})
+
+
+# serve the icons from the diagrams library
+@app.route("/usr/local/lib/python3.9/site-packages/resources/<path:filename>")
+def serve_icons(filename):
+    resource_dir = "/usr/local/lib/python3.9/site-packages/resources"
+    return send_from_directory(resource_dir, filename)
 
 
 if __name__ == "__main__":
